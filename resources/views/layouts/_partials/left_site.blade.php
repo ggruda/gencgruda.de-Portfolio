@@ -5,7 +5,7 @@
             <img src="/assets/img/gencgruda.png" alt="/">
         </div>
         <h1 class="mt-1">Genc Gruda</h1>
-        <a class="download-cv primary-button d-none d-lg-inline-block" href="javascript:void(0);">Download CV</a>
+        <a class="download-cv primary-button d-none d-lg-inline-block" target="_blank" href="/Genc-Gruda-Lebenslauf.pdf">Mein Lebenslauf</a>
         <div class="container d-lg-none d-inline-block">
             <div class="row">
                 <div class="col-12 text-center">
@@ -55,7 +55,7 @@
             </li>
         </ul>
         <div class="menu-footer">
-            <a class="download-cv primary-button mt-3 mb-4 d-lg-none" href="javascript:void(0);">Download CV</a>
+            <a class="download-cv primary-button mt-3 mb-4 d-lg-none" target="_blank" href="/Genc-Gruda-Lebenslauf">Mein Lebenslauf</a>
             <div class="social d-lg-none d-block">
                 <a href="javascript:void(0);" class="d-inline-block">
                     <i class="bi bi-whatsapp"></i>

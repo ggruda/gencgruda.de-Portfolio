@@ -32,7 +32,8 @@
                     <div class="portfolio-image">
                         <img src="https://via.placeholder.com/510x765" alt="/">
                         <div class="portfolio-icon">
-                            <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&#038;color=%23ff5500&#038;auto_play=false&#038;hide_related=false&#038;show_comments=true&#038;show_user=true&#038;show_reposts=false&#038;show_teaser=true&#038;visual=true" class="portfolio-magnific mfp-iframe">
+                            <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&#038;color=%23ff5500&#038;auto_play=false&#038;hide_related=false&#038;show_comments=true&#038;show_user=true&#038;show_reposts=false&#038;show_teaser=true&#038;visual=true"
+                               class="portfolio-magnific mfp-iframe">
                                 <i class="bi bi-music-note-beamed"></i>
                             </a>
                         </div>
@@ -82,7 +83,8 @@
                 <div class="portfolio-image">
                     <img src="https://via.placeholder.com/510x640" alt="/">
                     <div class="portfolio-icon">
-                        <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&#038;color=%23ff5500&#038;auto_play=false&#038;hide_related=false&#038;show_comments=true&#038;show_user=true&#038;show_reposts=false&#038;show_teaser=true&#038;visual=true" class="portfolio-magnific mfp-iframe">
+                        <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&#038;color=%23ff5500&#038;auto_play=false&#038;hide_related=false&#038;show_comments=true&#038;show_user=true&#038;show_reposts=false&#038;show_teaser=true&#038;visual=true"
+                           class="portfolio-magnific mfp-iframe">
                             <i class="bi bi-music-note-beamed"></i>
                         </a>
                     </div>
@@ -93,14 +95,15 @@
                 </div>
             </div>
             <!-- Item 05 -->
-            <div class="col-md-6 col-lg-4 portfolio-item mobiledesign sound">
+            <div class="col-md-6 col-lg-4 portfolio-item mobiledesign webdesign">
                 <div class="portfolio-image">
+
+                    <a href="https://player.vimeo.com/video/158284739" class="portfolio-magnific mfp-iframe">
                     <img src="https://via.placeholder.com/510x510" alt="/">
-                    <div class="portfolio-icon">
-                        <a href="https://player.vimeo.com/video/158284739" class="portfolio-magnific mfp-iframe">
+                        <div class="portfolio-icon">
                             <i class="bi bi-camera-video"></i>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="portfolio-content">
                     <h6 class="blog-header">Detailed Project 2</h6>

@@ -9,15 +9,15 @@
                         <img src="https://via.placeholder.com/250x250" alt="/">
                     </div>
                     <div class="hero-content mt-4 mx-auto mx-lg-0 text-lg-left mt-lg-none">
-                        <p class="base-color">WEB DESIGNER</p>
-                        <h2>Hello , I’m <span class="base-color">Alex Martin </span>Welcome to my World. </h2>
+                        <p class="base-color">(Lead) Software Entwickler</p>
+                        <h2>Hallo , ich bin <span class="base-color">Genc Gruda. </span>Herzlich Willkommen in meiner Welt. </h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="hero-footer d-block d-lg-none">
-        <a class="download-cv primary-button mt-3 mb-4 d-lg-none" href="javascript:void(0);">Download CV</a>
+        <a class="download-cv primary-button mt-3 mb-4 d-lg-none" target="_blank" href="/Genc-Gruda-Lebenslauf.pdf">Mein Lebenslauf</a>
         <div class="social d-lg-none mb-4 d-block">
             <a href="javascript:void(0);" class="d-inline-block">
                 <i class="bi bi-whatsapp"></i>
