@@ -6,12 +6,21 @@
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
+        "@rollup/plugin-inject": "^4.0.4",
         "axios": "^0.27",
         "bootstrap": "^5.2.0",
+        "jquery": "^3.6.0",
+        "jquery-ui": "^1.13.2",
         "laravel-vite-plugin": "^0.5.0",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "sass": "^1.54.5",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "aos": "^2.3.4",
+        "masonry-layout": "^4.2.2",
+        "particles.js": "^2.0.0",
+        "pkgd": "^1.1.2"
     }
 }
