@@ -3,17 +3,14 @@
     <div id="date"></div>
     <div class="social-box">
         <div class="follow-label">
-            <span>Follow Me</span>
+            <span>Hier bin ich auch</span>
         </div>
         <div class="social d-none d-lg-block">
-            <a href="javascript:void(0);">
-                <i class="bi bi-whatsapp"></i>
+            <a href="skype:genc@gruda-group.de?chat">
+                <i class="bi bi-skype"></i>
             </a>
-            <a href="javascript:void(0);">
-                <i class="bi bi-instagram"></i>
-            </a>
-            <a href="javascript:void(0);">
-                <i class="bi bi-dribbble"></i>
+            <a target="_blank" href="https://github.com/thegencgruda">
+                <i class="bi bi-github"></i>
             </a>
         </div>
     </div>
