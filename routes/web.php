@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomepageController::class, 'index']);
+
+Route::group(['prefix' => 'project'], function(){
+    Route::get('{slug}', [ProjectController::class, 'index'])->name('project-detail');
+});
