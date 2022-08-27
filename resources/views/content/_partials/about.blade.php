@@ -176,7 +176,7 @@
                     <div class="col-lg-12 skill-box">
                         <div class="skill-text">
                             <div class="skillbar-title">Teamführung</div>
-                            <div class="skill-bar-percent"><span data-from="0" data-to="85" data-speed="4000">95</span>%</div>
+                            <div class="skill-bar-percent"><span data-from="0" data-to="95" data-speed="4000">95</span>%</div>
                         </div>
                         <div class="skillbar clearfix" data-percent="95%">
                             <div class="skillbar-bar"></div>
@@ -242,7 +242,7 @@
                                 <i class="bi bi-circle-fill"></i>
                             </li>
                             <li class="list-inline-item">
-                                <i class="bi bi-circle-fill"></i>
+                                <i class="bi bi-circle-half"></i>
                             </li>
                             <li class="list-inline-item">
                                 <i class="bi bi-circle"></i>

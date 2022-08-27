@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Genc Gruda - Portfolio</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Retrina Group" />
+    <meta name="description" content="Diese Seite stellt den (Lead) Software-Entwickler Genc Gruda und seine Arbeiten/Fähigkeiten vor." />
+    <meta name="keywords" content="Software-Developer, Software-Entwickler, PHP, Laravel, Projekt manager, Jira" />
+    <meta name="author" content="Genc Gruda" />
     <!--  FavIcon  -->
     <link rel="shortcut icon" href="https://via.placeholder.com/32x32">
     <!-- Google Fonts -->
