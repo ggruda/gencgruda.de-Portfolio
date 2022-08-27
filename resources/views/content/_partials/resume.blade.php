@@ -135,14 +135,15 @@
                         <div class="timeline-box">
                             <div class="time-line-header">
                                 <p class="timeline-year">06/2010 - Heute</p>
-                                <h6 class="timeline-title">PHP-Entwickler und Team-Leader <small><i>(Festangestellt-/Nebenberuflich)</i></small></h6>
+                                <h6 class="timeline-title">PHP-Entwickler und Team-Leiter <small><i>(Festangestellt-/Nebenberuflich)</i></small></h6>
                             </div>
                             <div class="timeline-content">
                                 <p>
                                     Im Jahre 2010 habe ich als einziger Entwickler begonnen das Portal für den Kunden zu entwickeln.
                                     <br>
-                                    Nach ca. 2 Jahren wurden es zu viele Anforderungen und ich habe mich entschieden ein Team von Frontend-/Backend-lern aufzubauen, welche mich unterstüzt haben.
+                                    Nach ca. 2 Jahren wurden es zu viele Anforderungen und ich habe mich entschieden ein Team von Frontend-/Backend-lern aufzubauen, welche mich unterstützt haben.
                                     <br>
+                                    <h6 class="py-3">Aufgaben:</h6>
                                 <ul>
                                     <li>Datenbank Konzipierung + Datenbank-Schema erstellt</li>
                                     <li>Projektmanagement, Kommunikation mit dem Kunden</li>
@@ -181,7 +182,7 @@
                     <div class="col-md-6">
                         <div class="timeline-box">
                             <div class="time-line-header">
-                                <p class="timeline-year">10/2022 - HEUTE</p>
+                                <p class="timeline-year">10/2022 - Heute</p>
                                 <h6 class="timeline-title">Software-Entwickler <small><i>(Festangestellt)</i></small>
                                 </h6>
                             </div>
@@ -190,6 +191,7 @@
                                 <h6>Aufgaben:</h6>
                                 <ul>
                                     <li>Betreuung und weiterentwicklung der bestehenden Systeme</li>
+                                    <li>Erstellung neue Systeme für den internen gebrauch</li>
                                 </ul>
 
                                 <div class="py-4">
