@@ -9,7 +9,7 @@
         <div class="container d-lg-none d-inline-block">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p class="text-muted mb-0">Web Designer 1</p>
+                    <p class="text-muted mb-0">(Lead) Software Entwickler</p>
                 </div>
             </div>
         </div>
@@ -57,14 +57,11 @@
         <div class="menu-footer">
             <a class="download-cv primary-button mt-3 mb-4 d-lg-none" target="_blank" href="/Genc-Gruda-Lebenslauf">Mein Lebenslauf</a>
             <div class="social d-lg-none d-block">
-                <a href="javascript:void(0);" class="d-inline-block">
-                    <i class="bi bi-whatsapp"></i>
+                <a href="skype:genc@gruda-group.de?chat" class="d-inline-block">
+                    <i class="bi bi-skype"></i>
                 </a>
-                <a href="javascript:void(0);" class="d-inline-block mx-4">
-                    <i class="bi bi-instagram"></i>
-                </a>
-                <a href="javascript:void(0);" class="d-inline-block">
-                    <i class="bi bi-dribbble"></i>
+                <a target="_blank" href="https://github.com/thegencgruda" class="d-inline-block mx-2">
+                    <i class="bi bi-github"></i>
                 </a>
             </div>
         </div>

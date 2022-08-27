@@ -19,15 +19,15 @@
     <div class="hero-footer d-block d-lg-none">
         <a class="download-cv primary-button mt-3 mb-4 d-lg-none" target="_blank" href="/Genc-Gruda-Lebenslauf.pdf">Mein Lebenslauf</a>
         <div class="social d-lg-none mb-4 d-block">
-            <a href="javascript:void(0);" class="d-inline-block">
-                <i class="bi bi-whatsapp"></i>
+
+            <a href="skype:genc@gruda-group.de?chat" class="d-inline-block">
+                <i class="bi bi-skype"></i>
             </a>
-            <a href="javascript:void(0);" class="d-inline-block mx-4">
-                <i class="bi bi-instagram"></i>
+            <a target="_blank" href="https://github.com/thegencgruda" class="d-inline-block mx-2">
+                <i class="bi bi-github"></i>
             </a>
-            <a href="javascript:void(0);" class="d-inline-block">
-                <i class="bi bi-dribbble"></i>
-            </a>
+
+
         </div>
     </div>
 </section>
