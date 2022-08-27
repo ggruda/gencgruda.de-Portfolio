@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="assets/colors/blue.css">
 
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+{{--    @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
 </head>
 <body class="max-width-d">
 
