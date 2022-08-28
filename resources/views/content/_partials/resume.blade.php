@@ -191,7 +191,7 @@
                                 <h6>Aufgaben:</h6>
                                 <ul>
                                     <li>Betreuung und weiterentwicklung der bestehenden Systeme</li>
-                                    <li>Erstellung neue Systeme für den internen gebrauch</li>
+                                    <li>Erstellung neuer Systeme für den internen Gebrauch</li>
                                 </ul>
 
                                 <div class="py-4">

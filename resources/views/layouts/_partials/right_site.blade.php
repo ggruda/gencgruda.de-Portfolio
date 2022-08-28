@@ -3,7 +3,7 @@
     <div id="date"></div>
     <div class="social-box">
         <div class="follow-label">
-            <span>Hier bin ich auch</span>
+            <span>Folge mir</span>
         </div>
         <div class="social d-none d-lg-block">
             <a href="skype:genc@gruda-group.de?chat">
