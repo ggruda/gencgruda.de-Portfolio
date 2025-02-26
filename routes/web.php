@@ -16,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomepageController::class, 'index']);
+Route::get('impressum', function(){
+   return view('impressum');
+});
+
+Route::get('datenschutz', function(){
+    return view('datenschutz');
+});
 

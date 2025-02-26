@@ -449,9 +449,13 @@
 <div id="backToTop" onclick="scrollToTop()">↑</div>
 
 <!-- Footer -->
-<footer class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm shadow-inner">
+<footer class="bg-white/70 dark:bg-gray-800/70 backdrop-blur shadow-inner mt-12">
     <div class="max-w-7xl mx-auto px-4 py-6 text-center">
         <p class="text-gray-600 dark:text-gray-400">&copy; 2025 Genc Gruda</p>
+        <div class="mt-4 space-x-4">
+            <a href="/impressum" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Impressum</a>
+            <a href="/datenschutz" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Datenschutz</a>
+        </div>
     </div>
 </footer>
 
