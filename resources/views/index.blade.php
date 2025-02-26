@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="Erfahren Sie mehr über Genc Gruda, einen erfahrenen Software-Entwickler und Freelancer mit Fokus auf PHP, Laravel und moderne Web-Technologien.">
     <meta name="twitter:image" content="https://www.gencgruda.de/images/hero.jpg">
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data (JSON-LD) für Person -->
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -39,9 +39,21 @@
           "description": "Erfahrener Software-Entwickler mit Expertise in PHP, Laravel und modernen Web-Technologien. Spezialisiert auf innovative Lösungen und agile Softwareentwicklung."
         }
     </script>
+    <!-- Erweiterte SEO-Daten: Beispiel für Projekte -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          "name": "Projekte von Genc Gruda",
+          "description": "Eine Auswahl erfolgreicher Projekte und Zertifikate im Bereich der Softwareentwicklung.",
+          "url": "https://www.gencgruda.de/projekte"
+        }
+    </script>
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js für interaktive Diagramme -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -54,13 +66,18 @@
                         pulse: {
                             '0%, 100%': { transform: 'scale(1)' },
                             '50%': { transform: 'scale(1.1)' }
+                        },
+                        typewriter: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '100%' }
                         }
                     },
                     animation: {
                         fadeIn: 'fadeIn 2s ease-in-out',
                         slideIn: 'slideIn 1s ease-out forwards',
                         rotateIn: 'rotateIn 0.5s ease-out',
-                        pulse: 'pulse 1s infinite'
+                        pulse: 'pulse 1s infinite',
+                        typewriter: 'typewriter 4s steps(40) 1s forwards'
                     }
                 }
             }
@@ -68,6 +85,9 @@
     </script>
     <style>
         /* Custom Styles */
+        body {
+            cursor: url('/images/custom-cursor.png'), auto;
+        }
         .toggle-icon {
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
@@ -88,7 +108,7 @@
             bottom: 2rem;
             right: 2rem;
             background: #2563EB;
-            color: #F3F4F6; /* helle Schriftfarbe */
+            color: #F3F4F6;
             padding: 0.75rem;
             border-radius: 9999px;
             cursor: pointer;
@@ -111,6 +131,29 @@
         }
         .arrow:hover {
             transform: scale(1.2);
+        }
+        /* Terminal-Stil */
+        .terminal {
+            white-space: pre-line;
+            /* Weitere Eigenschaften wie bereits vorhanden */
+            background: #1E1E1E;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        .terminal .cursor {
+            display: inline-block;
+            width: 10px;
+            background: #00FF00;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
     <!-- Google reCAPTCHA -->
@@ -167,6 +210,7 @@
 <!-- Hauptinhalt -->
 <main class="pt-24 fade-in">
     <div class="max-w-7xl mx-auto px-4">
+
         <!-- Hero Section: Zweispaltig mit Video-Hintergrund -->
         <section class="relative mb-20 bg-black rounded-xl shadow-lg overflow-hidden">
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
@@ -175,14 +219,18 @@
             <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8">
                 <div class="z-10">
                     <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4">Genc Gruda</h1>
-                    <p class="text-xl md:text-2xl text-white mb-6">Software-Entwickler &amp; Freelancer – Ihr Experte für PHP, Laravel und moderne Web-Technologien</p>
-                    <a href="#lebenslauf" class="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300">Mehr erfahren</a>
+                    <div class="terminal">
+                        <div id="terminal-output"></div>
+                        <span class="cursor"></span>
+                    </div>
+                    <a href="#lebenslauf" class="inline-block mt-6 px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300">Mehr erfahren</a>
                 </div>
                 <div class="z-10 text-center">
                     <img src="/images/web_developer.svg" alt="Hero Illustration" class="w-full max-w-md mx-auto">
                 </div>
             </div>
         </section>
+
 
         <!-- Lebenslauf Section: Zweispaltig -->
         <section id="lebenslauf" class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
@@ -196,7 +244,8 @@
                 <div>
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6 border-b-2 border-blue-600 inline-block">Lebenslauf</h2>
                     <div class="flex flex-col md:flex-row">
-                        <div >
+
+                        <div>
                             <h4 class="text-xl font-semibold text-blue-600 mb-4">IT-Skills & Kernkompetenzen</h4>
                             <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
                                 <li><strong>Programmiersprachen:</strong> PHP (OOP), HTML, SQL, JavaScript, jQuery, CSS, XML</li>
@@ -257,7 +306,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Berufliche Erfolge: Zweispaltig -->
@@ -281,7 +329,22 @@
                 </div>
             </div>
         </section>
-
+        <!-- Parallax Section: Zweispaltig -->
+        <section id="parallax-section" class="mb-20 relative bg-fixed bg-center bg-cover" style="background-image: url('/images/parallax-bg.jpg');">
+            <div class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
+                    <!-- Linke Spalte: Text -->
+                    <div class="flex flex-col justify-center text-gray-800 dark:text-gray-200 mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6 border-b-2 border-blue-600 inline-block">Unsere Projekte</h2>
+                        <p class="mb-4">Erfahren Sie mehr über unsere innovativen Lösungen – interaktive Diagramme und Statistiken geben einen Überblick über unsere IT-Projekte.</p>
+                    </div>
+                    <!-- Rechte Spalte: Diagramm (Chart.js) -->
+                    <div>
+                        <canvas id="projectChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Testimonials Slider: Zweispaltig mit 7 Kundenstimmen -->
         <section id="testimonials" class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
@@ -293,7 +356,7 @@
                 <div class="relative">
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6 border-b-2 border-blue-600 inline-block">Kundenstimmen</h2>
                     <div id="slider" class="overflow-hidden relative">
-                        <div id="slides" class="flex transition-transform duration-500">
+                        <div id="slides" class="flex transition-transform duration-2500">
                             <div class="slide min-w-full p-4">
                                 <p class="text-gray-700 dark:text-gray-300 p-14">"Genc hat unsere Erwartungen übertroffen – innovative Lösungen und perfekte Umsetzung!"</p>
                             </div>
@@ -317,8 +380,8 @@
                             </div>
                         </div>
                         <!-- Slider Controls mit animierten Pfeilen -->
-                        <button id="prev" class="arrow absolute left-3 top-1/2 transform  bg-blue-600 text-white p-2 rounded-full">‹</button>
-                        <button id="next" class="arrow absolute right-3 top-1/2 transform  bg-blue-600 text-white p-2 rounded-full">›</button>
+                        <button id="prev" class="arrow absolute left-3 top-1/2 transform bg-blue-600 text-white p-2 rounded-full">‹</button>
+                        <button id="next" class="arrow absolute right-3 top-1/2 transform bg-blue-600 text-white p-2 rounded-full">›</button>
                     </div>
                 </div>
             </div>
@@ -494,6 +557,53 @@
         document.querySelectorAll('.animate-on-scroll').forEach(elem => {
             scrollObserver.observe(elem);
         });
+    });
+
+
+
+    // Stelle sicher, dass das Element mit der ID "terminal-output" existiert
+    const terminalOutput = document.getElementById('terminal-output');
+
+    // Der Text, der im Terminal ausgegeben werden soll
+    const text = "user@gencgruda:~$ Software-Entwickler & Freelancer – Ihr Experte für PHP, Laravel und moderne Web-Technologien. \nuser@gencgruda:~$ ";
+    // Startindex für den Typewriter-Effekt
+    let index = 0;
+
+    // Funktion, die den Typewriter-Effekt umsetzt
+    function typeWriter() {
+        if (index < text.length) {
+            terminalOutput.innerHTML += text.charAt(index);
+            index++;
+            // Passe den Delay an (in Millisekunden)
+            setTimeout(typeWriter, 50);
+        }
+    }
+
+    // Starte den Typewriter-Effekt
+    typeWriter();
+
+
+
+    // Chart.js Diagramm
+    const ctx = document.getElementById('projectChart').getContext('2d');
+    const projectChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Projekte 2015', 'Projekte 2016', 'Projekte 2017', 'Projekte 2018', 'Projekte 2019', 'Projekte 2020', 'Projekte 2021', 'Projekte 2022', 'Projekte 2023', 'Projekte 2024'],
+            datasets: [{
+                label: 'Abgeschlossene Projekte',
+                data: [1, 3, 4 ,5, 8, 12, 15, 7, 10],
+                backgroundColor: '#2563EB'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
     });
 
     // Formular-Submit mit Feedback (Demo)
