@@ -17,7 +17,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'index']);
 
-
-Route::group(['prefix' => 'project'], function(){
-    Route::get('{slug}', [ProjectController::class, 'show'])->name('project-detail');
-});
