@@ -226,7 +226,7 @@
                     <a href="#lebenslauf" class="inline-block mt-6 px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300">Mehr erfahren</a>
                 </div>
                 <div class="z-10 text-center">
-                    <img src="/images/web_developer.svg" alt="Hero Illustration" class="w-full max-w-md mx-auto">
+                    <img src="/images/web_developer.svg" alt="Hero Illustration" class="w-full max-w-md mx-auto web_developer_ilustration">
                 </div>
             </div>
         </section>
@@ -613,6 +613,22 @@
             this.reset();
         }, 3000);
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const web_developer_ilustrationElement = document.querySelector('.web_developer_ilustration');
+        if (web_developer_ilustrationElement) {
+            // Animation: Von oben herein, während sich die Opazität von 0 auf 1 ändert.
+            web_developer_ilustrationElement.animate([
+                { transform: 'translateY(-50px)', opacity: 0 },
+                { transform: 'translateY(0)', opacity: 1 }
+            ], {
+                duration: 1000,      // Dauer der Animation in Millisekunden
+                easing: 'ease-out',  // Sanfter Endeffekt
+                fill: 'forwards'     // Das Endergebnis wird beibehalten
+            });
+        }
+    });
+
 </script>
 </body>
 </html>
