@@ -50,23 +50,28 @@
                     keyframes: {
                         fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
                         slideIn: { '0%': { transform: 'translateY(-20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
-                        rotateIn: { '0%': { transform: 'rotate(-45deg)', opacity: '0' }, '100%': { transform: 'rotate(0)', opacity: '1' } }
+                        rotateIn: { '0%': { transform: 'rotate(-45deg)', opacity: '0' }, '100%': { transform: 'rotate(0)', opacity: '1' } },
+                        pulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.1)' }
+                        }
                     },
                     animation: {
                         fadeIn: 'fadeIn 2s ease-in-out',
                         slideIn: 'slideIn 1s ease-out forwards',
-                        rotateIn: 'rotateIn 0.5s ease-out'
+                        rotateIn: 'rotateIn 0.5s ease-out',
+                        pulse: 'pulse 1s infinite'
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Zusätzliche Custom Styles */
+        /* Custom Styles */
         .toggle-icon {
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
-        /* Floating label styling (siehe Formulare) */
+        /* Floating Labels */
         .peer:placeholder-shown ~ label {
             top: 0.75rem;
             font-size: 1rem;
@@ -75,26 +80,37 @@
         .peer:not(:placeholder-shown) ~ label {
             top: 0;
             font-size: 0.875rem;
-            color: #2563EB; /* Tailwind blue-600 */
+            color: #2563EB;
         }
-        /* Back-to-top Button */
+        /* Back-to-Top Button */
         #backToTop {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             background: #2563EB;
-            color: white;
+            color: #F3F4F6; /* helle Schriftfarbe */
             padding: 0.75rem;
             border-radius: 9999px;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s, transform 0.3s;
             z-index: 100;
         }
         #backToTop.show {
             opacity: 1;
             visibility: visible;
+        }
+        #backToTop:hover {
+            transform: scale(1.1);
+            animation: pulse 1s infinite;
+        }
+        /* Pfeile im Slider Animation */
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+        .arrow:hover {
+            transform: scale(1.2);
         }
     </style>
     <!-- Google reCAPTCHA -->
@@ -102,19 +118,17 @@
 </head>
 <body class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-200 transition-colors duration-500">
 
-<!-- Navigation (angepasst, Menüpunkte + Dark Mode Schalter rechts) -->
+<!-- Navigation (Menüpunkte und Dark Mode Schalter rechts) -->
 <nav class="fixed top-0 left-0 right-0 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm shadow-lg z-50">
     <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-between items-center h-16">
-            <!-- Linke Spalte: Logo -->
             <div class="flex-shrink-0">
                 <a href="#" class="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:animate-pulse">Genc Gruda</a>
             </div>
-            <!-- Rechte Spalte: Menü-Punkte und Dark Mode Schalter -->
             <div class="hidden md:flex items-center space-x-6">
                 <a href="#lebenslauf" class="nav-link text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Lebenslauf</a>
                 <a href="#erfolge" class="nav-link text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Erfolge</a>
-                <a href="#kontakt" class="nav-link text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Kontakt</a>
+                <a href="#kontakt-section" class="nav-link text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Kontakt</a>
                 <button id="dark-mode-toggle" class="relative w-6 h-6 ml-4 focus:outline-none">
                     <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="toggle-icon absolute inset-0 w-6 h-6 opacity-0 dark:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8-9h1M3 12H2m15.364 6.364l.707.707M5.636 5.636l-.707-.707m12.728 0l-.707-.707M5.636 18.364l-.707.707M12 5a7 7 0 110 14 7 7 0 010-14z" />
@@ -124,7 +138,6 @@
                     </svg>
                 </button>
             </div>
-            <!-- Mobile Ansicht: Dark Mode und Mobile Menü-Button -->
             <div class="flex md:hidden items-center space-x-4">
                 <button id="dark-mode-toggle-mobile" class="relative w-6 h-6 focus:outline-none">
                     <svg id="sun-icon-mobile" xmlns="http://www.w3.org/2000/svg" class="toggle-icon absolute inset-0 w-6 h-6 opacity-0 dark:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -146,7 +159,7 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="#lebenslauf" class="block text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Lebenslauf</a>
             <a href="#erfolge" class="block text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Erfolge</a>
-            <a href="#kontakt" class="block text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Kontakt</a>
+            <a href="#kontakt-section" class="block text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Kontakt</a>
         </div>
     </div>
 </nav>
@@ -154,21 +167,17 @@
 <!-- Hauptinhalt -->
 <main class="pt-24 fade-in">
     <div class="max-w-7xl mx-auto px-4">
-
-        <!-- Hero Section: Zweispaltig mit Video-Hintergrund (Parallax-Effekt) -->
+        <!-- Hero Section: Zweispaltig mit Video-Hintergrund -->
         <section class="relative mb-20 bg-black rounded-xl shadow-lg overflow-hidden">
-            <!-- Video-Hintergrund -->
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-50">
                 <source src="/videos/hero-background.mp4" type="video/mp4">
             </video>
             <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8">
-                <!-- Linke Spalte: Text -->
                 <div class="z-10">
                     <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4">Genc Gruda</h1>
                     <p class="text-xl md:text-2xl text-white mb-6">Software-Entwickler &amp; Freelancer – Ihr Experte für PHP, Laravel und moderne Web-Technologien</p>
                     <a href="#lebenslauf" class="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300">Mehr erfahren</a>
                 </div>
-                <!-- Rechte Spalte: Illustration -->
                 <div class="z-10 text-center">
                     <img src="/images/web_developer.svg" alt="Hero Illustration" class="w-full max-w-md mx-auto">
                 </div>
@@ -178,63 +187,74 @@
         <!-- Lebenslauf Section: Zweispaltig -->
         <section id="lebenslauf" class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
-                <!-- Linke Spalte: Illustration & Intro-Text -->
                 <div class="flex flex-col justify-center">
                     <img src="/images/lebenslauf-illustration.svg" alt="Lebenslauf Illustration" class="mx-auto w-full max-w-xs mb-4">
                     <p class="text-gray-700 dark:text-gray-300">
                         Entdecken Sie meinen beruflichen Werdegang – von persönlichen Daten über IT-Skills bis hin zu umfangreicher Berufserfahrung.
                     </p>
                 </div>
-                <!-- Rechte Spalte: Detaillierter Inhalt -->
                 <div>
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6 border-b-2 border-blue-600 inline-block">Lebenslauf</h2>
-                    <!-- Interaktive Timeline als Beispiel (Accordion-Stil) -->
-                    <div class="space-y-4">
-                        <div class="border-b border-gray-300 dark:border-gray-600 pb-4">
-                            <button class="w-full text-left focus:outline-none" onclick="toggleTimeline('timeline1')">
-                                <h4 class="text-xl font-semibold text-blue-600">ZHAW – Züricher Hochschule für angewandte Wissenschaft <span class="text-sm text-gray-500">(Oktober 2022 – Jetzt)</span></h4>
-                            </button>
-                            <div id="timeline1" class="mt-2 hidden">
-                                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
-                                    <li>Pflege und Weiterentwicklung von Moodle &amp; Plugins</li>
-                                    <li>Optimierung der Datenbankstruktur und Backend-Architektur für die MyZHAW-App</li>
-                                    <li>Entwicklung einer robusten API inkl. Import-Schnittstelle</li>
-                                    <li>Mitarbeit an einem responsiven Frontend</li>
-                                    <li>Arbeiten in einem Docker-basierten DDEV-Umfeld</li>
-                                </ul>
+                    <div class="flex flex-col md:flex-row">
+                        <div >
+                            <h4 class="text-xl font-semibold text-blue-600 mb-4">IT-Skills & Kernkompetenzen</h4>
+                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                                <li><strong>Programmiersprachen:</strong> PHP (OOP), HTML, SQL, JavaScript, jQuery, CSS, XML</li>
+                                <li><strong>Datenbanken:</strong> MySQL, MSSQL, PGSQL</li>
+                                <li><strong>Frameworks:</strong> Laravel, Zend Framework 3, Lumen, Laminas, Phalcon, Twitter Bootstrap</li>
+                                <li><strong>Tools:</strong> Node.js, DataGrip, Mantis, Bitbucket, Jira, PHPStorm, Composer, Doctrine, Git, SVN, Virtual-Box, YouTrack, Eloquent, Ubuntu, Vagrant, DDEV, Blade, Job-Router, Google-Maps-API, PayPal-API, Open-Street-Map, Moodle</li>
+                            </ul>
+                            <div class="mt-8">
+                                <h4 class="text-xl font-semibold text-blue-600 mb-2">Berufserfahrung</h4>
+                                <div class="space-y-4">
+                                    <div class="border-b border-gray-300 dark:border-gray-600 pb-4">
+                                        <button class="w-full text-left focus:outline-none" onclick="toggleTimeline('timeline1')">
+                                            <h4 class="text-xl font-semibold text-blue-600">ZHAW – Züricher Hochschule für angewandte Wissenschaft <span class="text-sm text-gray-500">(Oktober 2022 – Jetzt)</span></h4>
+                                        </button>
+                                        <div id="timeline1" class="mt-2 hidden">
+                                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                                                <li>Pflege und Weiterentwicklung von Moodle & Plugins</li>
+                                                <li>Optimierung der Datenbankstruktur und Backend-Architektur für die MyZHAW-App</li>
+                                                <li>Entwicklung einer robusten API inkl. Import-Schnittstelle</li>
+                                                <li>Mitarbeit an einem responsiven Frontend</li>
+                                                <li>Arbeiten in einem Docker-basierten DDEV-Umfeld</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="border-b border-gray-300 dark:border-gray-600 pb-4">
+                                        <button class="w-full text-left focus:outline-none" onclick="toggleTimeline('timeline2')">
+                                            <h4 class="text-xl font-semibold text-blue-600">Alterspree Verlag GmbH <span class="text-sm text-gray-500">(Januar 2021 – September 2022)</span></h4>
+                                        </button>
+                                        <div id="timeline2" class="mt-2 hidden">
+                                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                                                <li>Teamleitung und Koordination eines Entwicklerteams</li>
+                                                <li>Entwicklung innovativer Softwarelösungen</li>
+                                                <li>Agile Projektsteuerung als Scrum-Master (Jira)</li>
+                                                <li>Interdisziplinäre Zusammenarbeit zur Prozessoptimierung</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="border-b border-gray-300 dark:border-gray-600 pb-4">
+                                        <button class="w-full text-left focus:outline-none" onclick="toggleTimeline('timeline3')">
+                                            <h4 class="text-xl font-semibold text-blue-600">CodeFrog IT GmbH <span class="text-sm text-gray-500">(März 2019 – Dezember 2020)</span></h4>
+                                        </button>
+                                        <div id="timeline3" class="mt-2 hidden">
+                                            <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                                                <li>Leitung von Support- und Einarbeitungsmaßnahmen</li>
+                                                <li>Entwicklung interner APIs zur Prozessoptimierung</li>
+                                                <li>Erweiterung und Pflege bestehender Datenbankstrukturen</li>
+                                                <li>Implementierung diverser Tools zur Verbesserung der Abläufe</li>
+                                                <li>Regelmäßige Code-Reviews und Testprozesse</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-8">
+                                    <h4 class="text-xl font-semibold text-blue-600 mb-2">Ausbildung</h4>
+                                    <p>Abitur an der Hivzi Sylejmani mit Schwerpunkt Informatik.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="border-b border-gray-300 dark:border-gray-600 pb-4">
-                            <button class="w-full text-left focus:outline-none" onclick="toggleTimeline('timeline2')">
-                                <h4 class="text-xl font-semibold text-blue-600">Alterspree Verlag GmbH <span class="text-sm text-gray-500">(Januar 2021 – September 2022)</span></h4>
-                            </button>
-                            <div id="timeline2" class="mt-2 hidden">
-                                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
-                                    <li>Teamleitung und Koordination eines Entwicklerteams</li>
-                                    <li>Entwicklung innovativer Softwarelösungen</li>
-                                    <li>Agile Projektsteuerung als Scrum-Master (Jira)</li>
-                                    <li>Interdisziplinäre Zusammenarbeit zur Prozessoptimierung</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="border-b border-gray-300 dark:border-gray-600 pb-4">
-                            <button class="w-full text-left focus:outline-none" onclick="toggleTimeline('timeline3')">
-                                <h4 class="text-xl font-semibold text-blue-600">CodeFrog IT GmbH <span class="text-sm text-gray-500">(März 2019 – Dezember 2020)</span></h4>
-                            </button>
-                            <div id="timeline3" class="mt-2 hidden">
-                                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
-                                    <li>Leitung von Support- und Einarbeitungsmaßnahmen</li>
-                                    <li>Entwicklung interner APIs zur Prozessoptimierung</li>
-                                    <li>Erweiterung und Pflege bestehender Datenbankstrukturen</li>
-                                    <li>Implementierung diverser Tools zur Verbesserung der Abläufe</li>
-                                    <li>Regelmäßige Code-Reviews und Testprozesse</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Ausbildung</h4>
-                        <p>Abitur an der Hivzi Sylejmani mit Schwerpunkt Informatik.</p>
                     </div>
                 </div>
             </div>
@@ -243,11 +263,9 @@
         <!-- Berufliche Erfolge: Zweispaltig -->
         <section id="erfolge" class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
-                <!-- Linke Spalte: Illustration -->
                 <div class="flex flex-col justify-center">
                     <img src="/images/erfolg-illustration.svg" alt="Erfolge Illustration" class="mx-auto w-full max-w-xs mb-4">
                 </div>
-                <!-- Rechte Spalte: Text -->
                 <div>
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6 border-b-2 border-blue-600 inline-block">Berufliche Erfolge</h2>
                     <p class="text-gray-700 dark:text-gray-300 mb-4">
@@ -264,7 +282,7 @@
             </div>
         </section>
 
-        <!-- Testimonials Slider: Zweispaltig -->
+        <!-- Testimonials Slider: Zweispaltig mit 7 Kundenstimmen -->
         <section id="testimonials" class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
                 <!-- Linke Spalte: Illustration -->
@@ -274,9 +292,9 @@
                 <!-- Rechte Spalte: Slider -->
                 <div class="relative">
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6 border-b-2 border-blue-600 inline-block">Kundenstimmen</h2>
-                    <div id="slider" class="overflow-hidden relative p-15">
+                    <div id="slider" class="overflow-hidden relative">
                         <div id="slides" class="flex transition-transform duration-500">
-                            <div class="slide min-w-full">
+                            <div class="slide min-w-full p-4">
                                 <p class="text-gray-700 dark:text-gray-300 p-14">"Genc hat unsere Erwartungen übertroffen – innovative Lösungen und perfekte Umsetzung!"</p>
                             </div>
                             <div class="slide min-w-full p-4">
@@ -285,16 +303,28 @@
                             <div class="slide min-w-full p-4">
                                 <p class="text-gray-700 dark:text-gray-300 p-14">"Die Zusammenarbeit war unkompliziert und sehr professionell. Absolut empfehlenswert!"</p>
                             </div>
+                            <div class="slide min-w-full p-4">
+                                <p class="text-gray-700 dark:text-gray-300 p-14">"Seine Herangehensweise an komplexe Probleme ist beeindruckend und inspirierend."</p>
+                            </div>
+                            <div class="slide min-w-full p-4">
+                                <p class="text-gray-700 dark:text-gray-300 p-14">"Ich schätze besonders seine schnelle Reaktionszeit und zuverlässige Arbeit."</p>
+                            </div>
+                            <div class="slide min-w-full p-4">
+                                <p class="text-gray-700 dark:text-gray-300 p-14">"Dank Genc konnten wir unsere Softwarelösungen signifikant verbessern und optimieren."</p>
+                            </div>
+                            <div class="slide min-w-full p-4">
+                                <p class="text-gray-700 dark:text-gray-300 p-14">"Seine innovativen Ideen und Lösungen haben unser Projekt auf ein neues Level gehoben."</p>
+                            </div>
                         </div>
-                        <!-- Slider Controls -->
-                        <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">‹</button>
-                        <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">›</button>
+                        <!-- Slider Controls mit animierten Pfeilen -->
+                        <button id="prev" class="arrow absolute left-3 top-1/2 transform  bg-blue-600 text-white p-2 rounded-full">‹</button>
+                        <button id="next" class="arrow absolute right-3 top-1/2 transform  bg-blue-600 text-white p-2 rounded-full">›</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Kontakt: Zweispaltig (Bereits implementiert) -->
+        <!-- Kontakt Section: Zweispaltig -->
         <section id="kontakt-section" class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-24">
                 <!-- Linke Spalte: Header, Text und Illustration -->
@@ -318,16 +348,18 @@
                                 <label for="nachname" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Nachname</label>
                             </div>
                         </div>
-                        <div class="relative">
-                            <input type="text" id="firmenname" name="firmenname" class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="Firmenname">
-                            <label for="firmenname" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Firmenname</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <input type="text" id="firmenname" name="firmenname" class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="Firmenname">
+                                <label for="firmenname" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Firmenname</label>
+                            </div>
+                            <div class="relative">
+                                <input type="email" id="email" name="email" required class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="E-Mail Adresse">
+                                <label for="email" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">E-Mail Adresse</label>
+                            </div>
                         </div>
                         <div class="relative">
-                            <input type="email" id="email" name="email" required class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="E-Mail Adresse">
-                            <label for="email" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">E-Mail Adresse</label>
-                        </div>
-                        <div class="relative">
-                            <textarea id="message" name="message" rows="4" required class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="Nachricht"></textarea>
+                            <textarea id="message" name="message" rows="7" required class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="Nachricht"></textarea>
                             <label for="message" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Nachricht</label>
                         </div>
                         <!-- reCAPTCHA Integration (Platzhalter, Site-Key ersetzen) -->
@@ -374,7 +406,6 @@
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const darkModeToggleMobile = document.getElementById('dark-mode-toggle-mobile');
     const htmlElement = document.documentElement;
-    // Check localStorage on load
     if(localStorage.getItem('darkMode') === 'enabled'){
         htmlElement.classList.add('dark');
     }
@@ -397,7 +428,7 @@
         toggleDarkMode();
     });
 
-    // Back-to-Top Button Funktionalität
+    // Back-to-Top Button
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         if(window.scrollY > 300){
@@ -431,13 +462,12 @@
     function updateSlider(){
         slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
-    // Automatischer Slider
     setInterval(() => {
         slideIndex = (slideIndex + 1) % totalSlides;
         updateSlider();
     }, 5000);
 
-    // Active Navigation Highlight via Intersection Observer
+    // Active Navigation Highlight
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section[id]');
     const observer = new IntersectionObserver((entries) => {
@@ -451,7 +481,7 @@
     }, { threshold: 0.3 });
     sections.forEach(section => observer.observe(section));
 
-    // Intersection Observer für scrollbasierte Animationen
+    // Scrollbasierte Animationen
     document.addEventListener('DOMContentLoaded', () => {
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -466,9 +496,9 @@
         });
     });
 
-    // Formular-Submit mit Feedback (für Demo-Zwecke)
+    // Formular-Submit mit Feedback (Demo)
     document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Demo: Seite nicht neu laden
+        e.preventDefault();
         document.getElementById('feedback-message').classList.remove('hidden');
         setTimeout(() => {
             document.getElementById('feedback-message').classList.add('hidden');
