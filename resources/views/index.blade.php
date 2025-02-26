@@ -389,7 +389,7 @@
 
         <!-- Kontakt Section: Zweispaltig -->
         <section id="kontakt-section" class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-24">
                 <!-- Linke Spalte: Header, Text und Illustration -->
                 <div class="flex flex-col justify-center">
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 border-b-2 border-blue-600 inline-block">Kontakt</h2>
@@ -435,14 +435,12 @@
                             </button>
                         </div>
                     </form>
-                    <!-- Animated Feedback Message -->
                     <div id="feedback-message" class="mt-4 p-4 bg-green-100 text-green-800 rounded-md text-center hidden">
                         Danke für Ihre Nachricht!
                     </div>
                 </div>
             </div>
-    </div>
-    </section>
+        </section>
 
     </div>
 </main>
