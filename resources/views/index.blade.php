@@ -392,7 +392,6 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-24">
                 <!-- Linke Spalte: Header, Text und Illustration -->
                 <div class="flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 border-b-2 border-blue-600 inline-block">Kontakt</h2>
                     <p class="text-gray-700 dark:text-gray-300 mb-4">
                         Haben Sie Fragen oder möchten Sie ein Projekt besprechen? Kontaktieren Sie mich – ich freue mich darauf, gemeinsam kreative Lösungen zu entwickeln.
                     </p>
@@ -400,6 +399,8 @@
                 </div>
                 <!-- Rechte Spalte: Kontaktformular mit Floating Labels -->
                 <div>
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 border-b-2 border-blue-600 inline-block">Kontakt</h2>
+
                     <form id="contactForm" action="/kontakt" method="POST" class="space-y-6">
                         <div class="grid grid-cols-2 gap-4">
                             <div class="relative">
@@ -427,7 +428,7 @@
                         </div>
                         <!-- reCAPTCHA Integration (Platzhalter, Site-Key ersetzen) -->
                         <div>
-                            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                            <div class="g-recaptcha" data-sitekey="6Le_QuQqAAAAAIp56m3xqyyWLZvJnYUmss8eywbe"></div>
                         </div>
                         <div>
                             <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition-colors duration-300">
