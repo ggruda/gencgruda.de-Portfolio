@@ -426,10 +426,6 @@
                             <textarea id="message" name="message" rows="7" required class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="Nachricht"></textarea>
                             <label for="message" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Nachricht</label>
                         </div>
-                        <!-- reCAPTCHA Integration (Platzhalter, Site-Key ersetzen) -->
-                        <div>
-                            <div class="g-recaptcha" data-sitekey="6Le_QuQqAAAAAIp56m3xqyyWLZvJnYUmss8eywbe"></div>
-                        </div>
                         <div>
                             <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition-colors duration-300">
                                 Nachricht senden
