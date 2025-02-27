@@ -387,7 +387,7 @@
             </div>
         </section>
 
-        <!-- Kontakt Section: Zweispaltig -->
+        <!-- Kontakt Section: Zweispaltig mit responsivem Formular -->
         <section id="kontakt-section" class="mb-20 bg-white/60 dark:bg-gray-800/70 backdrop-blur-lg rounded-xl shadow-lg animate-on-scroll">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-24">
                 <!-- Linke Spalte: Header, Text und Illustration -->
@@ -402,7 +402,8 @@
                     <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 border-b-2 border-blue-600 inline-block">Kontakt</h2>
 
                     <form id="contactForm" action="/kontakt" method="POST" class="space-y-6">
-                        <div class="grid grid-cols-2 gap-4">
+                        <!-- Vorname und Nachname: auf Mobile in einer Zeile, auf Desktop nebeneinander -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="relative">
                                 <input type="text" id="vorname" name="vorname" required class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="Vorname">
                                 <label for="vorname" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Vorname</label>
@@ -412,7 +413,8 @@
                                 <label for="nachname" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Nachname</label>
                             </div>
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
+                        <!-- Firmenname und E-Mail: auf Mobile in einer Zeile, auf Desktop nebeneinander -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="relative">
                                 <input type="text" id="firmenname" name="firmenname" class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="Firmenname">
                                 <label for="firmenname" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Firmenname</label>
@@ -422,6 +424,7 @@
                                 <label for="email" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">E-Mail Adresse</label>
                             </div>
                         </div>
+                        <!-- Nachricht: Volle Breite -->
                         <div class="relative">
                             <textarea id="message" name="message" rows="7" required class="peer block w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-transparent text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder=" " aria-label="Nachricht"></textarea>
                             <label for="message" class="absolute left-4 top-2 text-gray-500 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-sm">Nachricht</label>
@@ -438,7 +441,6 @@
                 </div>
             </div>
         </section>
-
     </div>
 </main>
 
